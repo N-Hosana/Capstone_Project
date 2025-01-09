@@ -16,12 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from .views import EventListCreateView
+from django.urls import include, path
 
 urlpatterns = [
     path('api/events/', EventListCreateView.as_view(), name='event-list-create'),
-]
-
-
-urlpatterns = [
+    path('', include('events.urls')),
     path('admin/', admin.site.urls),
 ]
+
